@@ -39,3 +39,15 @@
 - has_many :members
 - has_many :messages
 - has_many :groups through: :member
+
+## members table
+
+|Column|Type|Options|notes|
+|------|----|-------|-----|
+|id|integer|-|Primary key|
+|user_id|integer|null: false, foreign_key: true|-|
+|group_id|integer|null: false, foreign_key: true|-|
+
+### Association
+- belongs_to :user
+- belongs_to :group
