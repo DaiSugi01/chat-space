@@ -12,7 +12,7 @@
 ### Association
 - has_many :members
 - has_many :messages
-- has_many :groups through: :member
+- has_many :groups through: :members
 
 ## messages table
 
@@ -38,7 +38,7 @@
 ### Association
 - has_many :members
 - has_many :messages
-- has_many :groups through: :member
+- has_many :groups through: :members
 
 ## members table
 
