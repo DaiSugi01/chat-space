@@ -1,0 +1,28 @@
+%body
+  .wrapper
+    .side-contents
+      .side-contents__header
+        %p.side-contents__header__user-name user_name
+        %ul.side-contents__header__menu
+          %i.fa.fa-edit
+          %i.fa.fa-cog
+      .side-contents__groups
+        = render "group"
+    .chat-main
+      .main-header
+        .main-header__group
+          %p.main-header__group__name TEST-group-name
+          %ul.main-header__group__member-list
+            Member：
+            %li.member-list__member TEST1
+        = link_to('Edit', '#', class: "main-header__edit")
+      .main-messages
+        = render "message"
+      .form
+        %from.form__message
+          .form__message__input
+            %input.form__message__input__text{placeholder: "type a message", type: "text"}
+            %label.form__message__input__image-label{for: "upload-icon"}
+              %i.fa.fa-image.fa-lg
+              %input.form__message__input__image-label__image{type: "file", id: "upload-icon"}
+          %input.form__message__input__submit{type:"submit", value:"Send"}
