@@ -1,0 +1,23 @@
+*{
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+
+  .side-contents {
+    color: $white;
+    font-weight: bold;
+    width: 300px;
+  }
+
+  .chat-main {
+    width: calc(100vw - 300px);
+    float: left;
+  }
+
+  .form {
+    background: #ddd;
+    padding: 20px 40px;
+  }
+}
