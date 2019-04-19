@@ -1,25 +1,25 @@
-.main-messages {
+.chat__main {
   background: #fafafa;
   height: calc(100vh - 190px);
   padding: 46px 40px;
   overflow: scroll;
 
-  .message {
+  &__message {
     font-size: 14px;
     color: #434a54;
     font-weight: bold;
     padding-bottom: 40px;
 
-    .user-info {
+    &__user-info {
       display: flex;
       margin-bottom: 10px;
 
-      .user-info__user-name {
+      &__user-name {
         font-size: 16px;
         font-weight: bold;
       }
 
-      .user-info__date {
+      &__date {
         font-size: 12px;
         color: $gray;
         padding-left: 10px;
