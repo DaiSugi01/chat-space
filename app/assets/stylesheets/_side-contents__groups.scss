@@ -1,15 +1,15 @@
-.side-contents__groups {
+.side-contents__groups__group {
   height: calc(100vh - 100px);
   background: #2f3e51;
   padding: 20px 20px 0;
   overflow: scroll;
 
-  .group__group-name {
+  &__group-name {
     margin-bottom: 5px;
     font-size: 15px;
   }
 
-  .group__latest-message {
+  &__latest-message {
     font-size: 12px;
     margin-bottom: 40px;
   }

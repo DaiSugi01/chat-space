@@ -3,13 +3,13 @@
   height: 100px;
   padding: 0 20px;
 
-  .side-contents__header__user-name {
+  &__user-name {
     float: left;
     line-height: 100px;
     font-size: 16px;
   }
 
-  .side-contents__header__menu {
+  &__menu {
     float: right;
     line-height: 100px;
   }
