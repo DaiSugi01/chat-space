@@ -8,15 +8,15 @@
           %i.fa.fa-cog
       .side-contents__groups
         = render "group"
-    .chat-main
-      .main-header
-        .main-header__group
-          %p.main-header__group__name TEST-group-name
-          %ul.main-header__group__member-list
+    .chat
+      .chat__header
+        .chat__header__group
+          %p.chat__header__group__name TEST-group-name
+          %ul.chat__header__group__member-list
             Member：
-            %li.member-list__member TEST1
-        = link_to('Edit', '#', class: "main-header__edit")
-      .main-messages
+            %li.chat__header__group__member-list__member TEST1
+        = link_to('Edit', '#', class: "chat__header__edit")
+      .chat__main
         = render "message"
       .form
         %from.form__message
