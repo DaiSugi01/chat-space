@@ -1,0 +1,29 @@
+.chat__main {
+  background: #fafafa;
+  height: calc(100vh - 190px);
+  padding: 46px 40px;
+  overflow: scroll;
+
+  &__message {
+    font-size: 14px;
+    color: #434a54;
+    font-weight: bold;
+    padding-bottom: 40px;
+
+    &__user-info {
+      display: flex;
+      margin-bottom: 10px;
+
+      &__user-name {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      &__date {
+        font-size: 12px;
+        color: $gray;
+        padding-left: 10px;
+      }
+    }
+  }
+}

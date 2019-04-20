@@ -1,0 +1,34 @@
+.form__message {
+  display: flex;
+
+  &__input {
+    position: relative;
+    width: 100%;
+
+    &__text {
+      height: 50px;
+      width: 100%;
+      padding-left: 10px;
+      font-size: 16px;
+      color: #253141;
+    }
+  
+    &__image-label {
+      position: absolute;
+      top: 15px;
+      right: 10px;
+  
+      &__image {
+        display: none;
+      }
+    }
+  }
+
+  &__input__submit {
+    background-color: $lightBlue;
+    color: $white;
+    height: 50px;
+    width: 100px;
+    margin-left: 25px;
+  }
+}
