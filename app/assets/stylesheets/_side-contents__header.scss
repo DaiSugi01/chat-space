@@ -10,7 +10,16 @@
   }
 
   &__menu {
-    float: right;
-    line-height: 100px;
+    display: flex;
+    justify-content: flex-end;
+
+    &__link {
+      line-height: 100px;  
+      margin-left: 0.3rem;
+
+      a {
+        color: $white;
+      }
+    }
   }
 }
