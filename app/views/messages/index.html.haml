@@ -2,10 +2,14 @@
   .wrapper
     .side-contents
       .side-contents__header
-        %p.side-contents__header__user-name user_name
+        %p.side-contents__header__user-name
+          =current_user.name
         %ul.side-contents__header__menu
-          %i.fa.fa-edit
-          %i.fa.fa-cog
+          %li.side-contents__header__menu__link
+            %i.fa.fa-edit
+          %li.side-contents__header__menu__link
+            = link_to edit_user_path(current_user.id) do
+              %i.fa.fa-cog
       .side-contents__groups
         = render "group"
     .chat
@@ -14,7 +18,8 @@
           %p.chat__header__group__name TEST-group-name
           %ul.chat__header__group__member-list
             Member：
-            %li.chat__header__group__member-list__member TEST1
+            %li.chat__header__group__member-list__member
+              =current_user.name
         = link_to('Edit', '#', class: "chat__header__edit")
       .chat__main
         = render "message"
