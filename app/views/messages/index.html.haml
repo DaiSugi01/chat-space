@@ -6,7 +6,8 @@
           =current_user.name
         %ul.side-contents__header__menu
           %li.side-contents__header__menu__link
-            %i.fa.fa-edit
+            = link_to new_group_path do
+              %i.fa.fa-edit
           %li.side-contents__header__menu__link
             = link_to edit_user_path(current_user.id) do
               %i.fa.fa-cog
