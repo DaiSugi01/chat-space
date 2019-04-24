@@ -12,7 +12,8 @@
             = link_to edit_user_path(current_user.id) do
               %i.fa.fa-cog
       .side-contents__groups
-        = render "group"
+        .side-contents__groups__group
+          = render "group"
     .chat
       .chat__header
         .chat__header__group
