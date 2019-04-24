@@ -1,3 +1,6 @@
-.side-contents__groups__group
-  %p.side-contents__groups__group__group-name test-group1
-  %p.side-contents__groups__group__latest-message よろしくおねがいします。
+- current_user.groups.each do |group|
+  = link_to group_messages_path(group) do
+    %p.side-contents__groups__group__group-name 
+      = group.name
+    %p.side-contents__groups__group__latest-message
+      メッセージはまだありません。
