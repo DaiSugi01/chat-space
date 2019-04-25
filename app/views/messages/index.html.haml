@@ -22,7 +22,8 @@
             Member：
             %li.chat__header__group__member-list__member
               =current_user.name
-        = link_to('Edit', '#', class: "chat__header__edit")
+        .chat__header__edit
+          = link_to "Edit", "/groups/1/edit"
       .chat__main
         = render "message"
       .form
