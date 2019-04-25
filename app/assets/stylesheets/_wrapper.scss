@@ -7,8 +7,8 @@
 
   .side-contents {
     color: $white;
-    font-weight: bold;
     width: 300px;
+    box-sizing: border-box;
   }
 
   .chat {
