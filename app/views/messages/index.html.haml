@@ -23,14 +23,15 @@
             %li.chat__header__group__member-list__member
               =current_user.name
         .chat__header__edit
-          = link_to "Edit", "/groups/1/edit"
+          = link_to "Edit", edit_group_path(@group)
       .chat__main
-        = render "message"
+        = render @message
       .form
-        %from.form__message
-          .form__message__input
-            %input.form__message__input__text{placeholder: "type a message", type: "text"}
-            %label.form__message__input__image-label{for: "upload-icon"}
-              %i.fa.fa-image.fa-lg
-              %input.form__message__input__image-label__image{type: "file", id: "upload-icon"}
-          %input.form__message__input__submit{type:"submit", value:"Send"}
+        = form_for [@group, @message] do |f|
+          .form__message
+            .form__message__input
+              = f.text_field :body, class: "form__message__input__text", placeholder: "type a message"
+              = f.label :image, class:"form__message__input__image-label" do
+                %i.fa.fa-image.fa-lg
+                = f.file_field :image, class: "form__message__input__image-label__image"
+            = f.submit "Send", class: "form__message__input__submit"
