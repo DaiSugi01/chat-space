@@ -17,11 +17,13 @@
     .chat
       .chat__header
         .chat__header__group
-          %p.chat__header__group__name TEST-group-name
+          %p.chat__header__group__name
+            = @group.name
           %ul.chat__header__group__member-list
             Member：
             %li.chat__header__group__member-list__member
-              =current_user.name
+              - @group.users.each do |list_user|
+                =list_user.name
         .chat__header__edit
           = link_to "Edit", edit_group_path(@group)
       .chat__main
