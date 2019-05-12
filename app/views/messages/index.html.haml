@@ -26,7 +26,7 @@
                 =list_user.name
         .chat__header__edit
           = link_to "Edit", edit_group_path(@group)
-      .chat__main
+      .chat__main#chat-main
         = render @message
       .form
         = form_for [@group, @message] do |f|
@@ -36,4 +36,4 @@
               = f.label :image, class:"form__message__input__image-label" do
                 %i.fa.fa-image.fa-lg
                 = f.file_field :image, class: "form__message__input__image-label__image"
-            = f.submit "Send", class: "form__message__input__submit"
+            = f.submit "Send", class: "form__message__input__submit", id: "submit"

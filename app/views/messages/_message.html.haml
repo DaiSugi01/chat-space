@@ -1,6 +1,6 @@
 - @group.messages.each do |message|
-  .chat__main__message 
-    - if message.body.present? && message.body.present? 
+  .chat__main__message
+    - if message.body.present? || message.image.present? 
       .chat__main__message__user-info
         %p.chat__main__message__user-info__user-name
           = current_user.name
@@ -10,4 +10,4 @@
         - if message.body.present?
           %p.chat__main__message__text__body
             = message.body 
-        = image_tag message.image_url, class: "chat__main__message__text__image"  if message.image.present?
+        = image_tag message.image.url, class: "chat__main__message__text__image" if message.image.present?
