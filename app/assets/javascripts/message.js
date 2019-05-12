@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   function buildHTML(message){
     var imageTag = (message.image) ? `<img class="chat__main__message__text__image" src="${message.image}">` : ""
     var html = `<div class="chat__main__message">
