@@ -24,16 +24,17 @@
       %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
     .chat-group-form__field--right
       / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
-      = f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b|
-        =b.label {b.check_box + b.text}
+      / = f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b|
+      /   =b.label {b.check_box + b.text}
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
-      /
-        <div id='chat-group-users'>
-        <div class='chat-group-user clearfix' id='chat-group-user-22'>
-        <input name='chat_group[user_ids][]' type='hidden' value='22'>
-        <p class='chat-group-user__name'>seo_kyohei</p>
-        </div>
-        </div>
+      #chat-group-users
+        -@group.users.each do |chat_member|
+          .chat-group-user.clearfix{id: "chat-group-user-#{chat_member.id}"}
+            %input{ name: 'group[user_ids][]', type: 'hidden', value: chat_member.id }
+            %p.chat-group-user__name 
+              = chat_member.name
+            - if !(chat_member.id == current_user.id)
+              .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
