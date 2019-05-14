@@ -36,6 +36,7 @@ $(document).on('turbolinks:load', function() {
     $('#chat-group-users').append(html);
   }
 
+  // 非同期通信、ユーザー名入力時の処理
   $('#user-search-field').on('keyup', function(e) {
     e.preventDefault();
     var searchUserName = $(this).val();
@@ -66,11 +67,23 @@ $(document).on('turbolinks:load', function() {
     })
   })
 
-   // 追加ボタン押下時の処理
-   $("#user-search-result").on("click", ".chat-group-user__btn--add", function() {
+  // 追加ボタン押下時の処理
+  $("#user-search-result").on("click", ".chat-group-user__btn--add", function() {
     var userId = $(this).data('user-id')
     var userName = $(this).data('user-name')
     appendUserToMember(userId, userName);
     $(this).parent().remove();
   })
+
+  // 削除ボタン押下時の処理
+  $('#chat-group-users').on('click', '.chat-group-user__btn--remove', function() {
+    $(this).parent().remove();
+    var searchUserName = $('#user-search-field').val();
+    if (searchUserName) {
+      var userId = ($(this).siblings('input').val());
+      var userName = ($(this).siblings('.chat-group-user__name').text());
+      var user = {id: userId, name: userName}
+      userName.indexOf(searchUserName) === 0 ? appendUser(user) : ""
+    }
+  })  
 })
