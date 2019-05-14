@@ -29,10 +29,9 @@
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
       #chat-group-users
         -@group.users.each do |chat_member|
-          .chat-group-user.clearfix{id: "chat-group-user-#{chat_member.id}"}
+          .chat-group-user.clearfix.js-chat-member{id: "chat-group-user-#{chat_member.id}"}
             %input{ name: 'group[user_ids][]', type: 'hidden', value: chat_member.id }
-            %p.chat-group-user__name 
-              = chat_member.name
+            %p.chat-group-user__name #{chat_member.name}
             - if !(chat_member.id == current_user.id)
               .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
   .chat-group-form__field.clearfix
