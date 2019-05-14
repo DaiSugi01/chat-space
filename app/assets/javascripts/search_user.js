@@ -23,6 +23,18 @@ $(document).on('turbolinks:load', function() {
     $('#user-search-result').append(html);
   }
 
+  /*
+  関数概要：チャットメンバー欄にユーザーを追加する
+  引数：ユーザーId string, ユーザー名 string
+  */
+  function appendUserToMember(userId, userName) {
+    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${userId}'>
+                  <input name='group[user_ids][]' type='hidden' value='${userId}'>
+                  <p class='chat-group-user__name'>${userName}</p>
+                  <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+                </div>`
+    $('#chat-group-users').append(html);
+  }
 
   $('#user-search-field').on('keyup', function(e) {
     e.preventDefault();
@@ -52,5 +64,13 @@ $(document).on('turbolinks:load', function() {
     .fail(function(){ 
       alert('ユーザー検索に失敗しました');
     })
+  })
+
+   // 追加ボタン押下時の処理
+   $("#user-search-result").on("click", ".chat-group-user__btn--add", function() {
+    var userId = $(this).data('user-id')
+    var userName = $(this).data('user-name')
+    appendUserToMember(userId, userName);
+    $(this).parent().remove();
   })
 })
