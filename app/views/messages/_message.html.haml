@@ -1,9 +1,9 @@
 - @group.messages.each do |message|
-  .chat__main__message
+  .chat__main__message{data: {message_id: message.id}}
     - if message.body.present? || message.image.present? 
       .chat__main__message__user-info
         %p.chat__main__message__user-info__user-name
-          = current_user.name
+          = message.user.name
         %p.chat__main__message__user-info__date
           = message.created_at.strftime("%Y/%m/%d(%a) %H:%M:%S") if message.created_at.present?
       .chat__main__message__text
