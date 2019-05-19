@@ -22,12 +22,16 @@ $(document).on('turbolinks:load', function() {
 
   var reloadMessages = function() {
     var last_message_id = $('.chat__main__message:last').data('messageId')
+    var first_message_id = $('.chat__main__message:first').data('messageId')
     var href = window.location.href.replace(/messages/g,"api/messages")
     $.ajax({
       url: href,
       type: 'GET',
       dataType: 'json',
-      data: {id: last_message_id}
+      data: {
+        lastId: last_message_id,
+        firstId: first_message_id
+      }
     })
     .done(function(messages) {
       var chatMainHeight = $('#chat-main').get(0).scrollHeight;
@@ -69,5 +73,10 @@ $(document).on('turbolinks:load', function() {
       $('#submit').prop('disabled', false);
     })
   })
-  setInterval(reloadMessages, 5000);
+  $(function(){
+    var now_page = window.location.href
+    if (now_page.match(/groups\/\d+\/messages/)) {
+      setInterval(reloadMessages, 5000)
+    }
+  })
 })
