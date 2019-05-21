@@ -12,6 +12,7 @@ class Api::MessagesController < ApplicationController
   end
   
   private 
+  
   def getMessages(id)
     @messages = Message.where('id > ?', id).where(group_id: params[:group_id])
   end
