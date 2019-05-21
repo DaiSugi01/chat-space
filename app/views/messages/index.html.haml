@@ -27,7 +27,7 @@
         .chat__header__edit
           = link_to "Edit", edit_group_path(@group)
       .chat__main#chat-main
-        = render @message
+        = render partial: "message", collection: @messages
       .form
         = form_for [@group, @message] do |f|
           .form__message
