@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function() {
   function buildHTML(message){
     var imageTag = (message.image) ? `<img class="chat__main__message__text__image" src="${message.image}">` : ""
-    var html = `<div class="chat__main__message">
+    var html = `<div class="chat__main__message" data-message-id="${message.id}"->
                   <div class="chat__main__message__user-info">
                     <p class="chat__main__message__user-info__user-name">
                       ${message.user_name} 
@@ -19,6 +19,32 @@ $(document).on('turbolinks:load', function() {
                 </div>`
     return html;
   }
+
+  var reloadMessages = function() {
+    var last_message_id = $('.chat__main__message:last').data('messageId')
+    var first_message_id = $('.chat__main__message:first').data('messageId')
+    var href = window.location.href.replace(/messages/g,"api/messages")
+    $.ajax({
+      url: href,
+      type: 'GET',
+      dataType: 'json',
+      data: {
+        lastId: last_message_id,
+        firstId: first_message_id
+      }
+    })
+    .done(function(messages) {
+      var chatMainHeight = $('#chat-main').get(0).scrollHeight;
+      messages.forEach(function(message) {
+        var html = buildHTML(message)
+        $('#chat-main').append(html)
+        $('#chat-main').animate({scrollTop: chatMainHeight}, 300);
+      });
+    })
+    .fail(function() {
+      alert('自動更新に失敗しました')
+    });
+  };
 
   $('#new_message').on('submit',function(e) {
     e.preventDefault();
@@ -46,5 +72,11 @@ $(document).on('turbolinks:load', function() {
     .always(function() {
       $('#submit').prop('disabled', false);
     })
+  })
+  $(function(){
+    var now_page = window.location.href
+    if (now_page.match(/groups\/\d+\/messages/)) {
+      setInterval(reloadMessages, 5000)
+    }
   })
 })
