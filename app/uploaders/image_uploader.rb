@@ -50,6 +50,3 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 end
-
-sudo cp /usr/local/bin/git-secrets /Applications/GitHub\ Desktop.app/Contents/Resources/app/git/bin/git-secrets
-sudo cp /usr/local/bin/git-secrets /Applications/GitHub\ sudo cp /usr/local/bin/git-secrets /Applications/GitHub\ Desktop.app/Contents/Resources/app/git/bin/git-secrets
