@@ -4,7 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :fog
+  storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -46,3 +46,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 end
+
+sudo cp /usr/local/bin/git-secrets /Applications/GitHub\ Desktop.app/Contents/Resources/app/git/bin/git-secrets
+sudo cp /usr/local/bin/git-secrets /Applications/GitHub\ sudo cp /usr/local/bin/git-secrets /Applications/GitHub\ Desktop.app/Contents/Resources/app/git/bin/git-secrets
