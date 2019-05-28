@@ -53,7 +53,6 @@ $(document).on('turbolinks:load', function() {
     if(!now_page.match(/groups\/\d\/messages/)) {
       return;
     }
-    console.log("aaaa")
     var last_message_id = $('.chat__main__message:last').data('messageId')
     var first_message_id = $('.chat__main__message:first').data('messageId')
     var href = now_page.replace(/messages/g,"api/messages")
